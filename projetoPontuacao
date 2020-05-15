@@ -15,13 +15,15 @@ public class prPontuacao {
 
 		int numeroCompras;
 		int atasoPgto;
-		int scoreComprass;
+		int scoreCompras;
 		int scoreAtraso;
 		int	scoreMeio;
+		int scoreFinal;
 		double mediaCompras;
 		double volumeCompras;
 		char meioPgto;
-		scoreComprass = 0;
+		String classificacaoFinal;
+		scoreCompras = 0;
 		scoreAtraso =0;
 		scoreMeio = 0;
 		
@@ -43,7 +45,7 @@ public class prPontuacao {
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		meioPgto = sc.next().charAt(0);
 
-		volumeCompras = numeroCompras * ticketMedio;
+		volumeCompras = numeroCompras * mediaCompras;
 
 		if (numeroCompras <= 0) {
 			scoreCompras = 0;
@@ -76,6 +78,21 @@ public class prPontuacao {
 		System.out.println("");
 		System.out.printf("Score de inadimplência = %d pontos%n", scoreAtraso);
 		System.out.printf("Score de forma de pagamento = %d pontos%n", scoreMeio);
+		
+		
+		
+		scoreFinal = scoreCompras + scoreAtraso + scoreMeio;
+
+		if (scoreFinal >= 0 && scoreFinal <= 25) {
+			classificacaoFinal = "BRONZE";
+		} else if (scoreFinal <= 75) {
+			classificacaoFinal = "PRATA";
+		} else {
+			classificacaoFinal = "OURO";
+		}
+
+		System.out.println("");
+		System.out.println("Classificação final = CLIENTE " + classificacaoFinal);
 
 		sc.close();
 		
