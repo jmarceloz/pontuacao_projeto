@@ -15,8 +15,11 @@ public class prPontuacao {
 
 		int numeroCompras;
 		int atasoPgto;
+		int scoreComprass;
 		double mediaCompras;
+		double volumeCompras;
 		char meioPgto;
+		scoreComprass = 0;
 		
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
@@ -35,6 +38,22 @@ public class prPontuacao {
 		atasoPgto = sc.nextInt();
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		meioPgto = sc.next().charAt(0);
+
+		volumeCompras = numeroCompras * ticketMedio;
+
+		if (numeroCompras <= 0) {
+			scoreCompras = 0;
+		} else if (volumeCompras <= 3000 && numeroCompras < 2) {
+			scoreCompras = 20;
+		} else if (volumeCompras <= 3000 && numeroCompras >= 2) {
+			scoreCompras = 40;
+		} else if (volumeCompras > 3000) {
+			scoreCompras = 60;
+		}
+
+		System.out.println("");
+		System.out.printf("Score de volume de compras = %d pontos", scoreCompras);
+
 
 		sc.close();
 		
