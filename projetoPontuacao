@@ -14,7 +14,9 @@ public class prPontuacao {
 		Scanner sc = new Scanner (System.in);
 
 		int numeroCompras;
+		int atasoPgto;
 		double mediaCompras;
+		char meioPgto;
 		
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
@@ -26,6 +28,14 @@ public class prPontuacao {
 		numeroCompras = sc.nextInt();
 		System.out.print("Qual o ticket médio? ");
 		mediaCompras = sc.nextDouble();
+		
+		
+		System.out.println("");
+		System.out.print("Quantas vezes o cliente atrasou o pagamento? ");
+		atasoPgto = sc.nextInt();
+		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
+		meioPgto = sc.next().charAt(0);
+
 		sc.close();
 		
 	}
