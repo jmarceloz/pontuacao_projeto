@@ -16,10 +16,14 @@ public class prPontuacao {
 		int numeroCompras;
 		int atasoPgto;
 		int scoreComprass;
+		int scoreAtraso;
+		int	scoreMeio;
 		double mediaCompras;
 		double volumeCompras;
 		char meioPgto;
 		scoreComprass = 0;
+		scoreAtraso =0;
+		scoreMeio = 0;
 		
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
@@ -52,8 +56,26 @@ public class prPontuacao {
 		}
 
 		System.out.println("");
-		System.out.printf("Score de volume de compras = %d pontos", scoreCompras);
+		System.out.printf("Score de volume de compras = %d pontos%n", scoreCompras);
 
+
+		if (atasoPgto > 1 || numeroCompras == 0) {
+			scoreAtraso = 0;
+		} else if (numeroCompras > 0 && atasoPgto == 1) {
+			scoreAtraso = 15;
+		} else if (numeroCompras > 0 && atasoPgto == 0) {
+			scoreAtraso = 30;
+		}
+
+		if (numeroCompras > 0 && meioPgto == 'D') {
+			scoreMeio = 5;
+		} else if (numeroCompras > 0 && (meioPgto == 'C' || meioPgto == 'B')) {
+			scoreMeio = 10;
+		}
+
+		System.out.println("");
+		System.out.printf("Score de inadimplência = %d pontos%n", scoreAtraso);
+		System.out.printf("Score de forma de pagamento = %d pontos%n", scoreMeio);
 
 		sc.close();
 		
