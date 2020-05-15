@@ -13,12 +13,19 @@ public class prPontuacao {
 		
 		Scanner sc = new Scanner (System.in);
 
+		int numeroCompras;
+		double mediaCompras;
 		
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
 		System.out.println("--------------------------------");
 		System.out.println("INFORME OS DADOS DO ÚLTIMO ANO");
 		System.out.println("");
 
+
+		System.out.print("Quantas compras o cliente fez no último ano? ");
+		numeroCompras = sc.nextInt();
+		System.out.print("Qual o ticket médio? ");
+		mediaCompras = sc.nextDouble();
 		sc.close();
 		
 	}
